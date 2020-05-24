@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{FB330A93-19A1-479D-BCC1-790CE8021311}</ProjectGuid>
+    <ProjectGuid>{5B4F0F50-89AF-429D-9D1D-0BAE44204603}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>QuanLyThuVien</RootNamespace>
-    <AssemblyName>QuanLyThuVien</AssemblyName>
+    <RootNamespace>QLThuVien</RootNamespace>
+    <AssemblyName>QLThuVien</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -33,17 +33,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -55,54 +46,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BANGCAP.cs">
-      <DependentUpon>QLTVModel.tt</DependentUpon>
+    <Compile Include="FormNV.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CHITIETPHIEUMUON.cs">
-      <DependentUpon>QLTVModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DOCGIA.cs">
-      <DependentUpon>QLTVModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Form\FormNV.cs" />
-    <Compile Include="Form\FormNV.Designer.cs">
+    <Compile Include="FormNV.Designer.cs">
       <DependentUpon>FormNV.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form\UTIL\Util.cs" />
-    <Compile Include="NHANVIEN.cs">
-      <DependentUpon>QLTVModel.tt</DependentUpon>
+    <Compile Include="FormSach.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PHIEUMUONSACH.cs">
-      <DependentUpon>QLTVModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PHIEUTHUTIEN.cs">
-      <DependentUpon>QLTVModel.tt</DependentUpon>
+    <Compile Include="FormSach.Designer.cs">
+      <DependentUpon>FormSach.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QLTVModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QLTVModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="QLTVModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QLTVModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="QLTVModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QLTVModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="SACH.cs">
-      <DependentUpon>QLTVModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sysdiagram.cs">
-      <DependentUpon>QLTVModel.tt</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="Form\FormNV.resx">
+    <EmbeddedResource Include="FormNV.resx">
       <DependentUpon>FormNV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSach.resx">
+      <DependentUpon>FormSach.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -113,7 +75,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="Form\Config\packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -123,31 +84,15 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EntityDeploy Include="QLTVModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>QLTVModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="QLTVModel.edmx.diagram">
-      <DependentUpon>QLTVModel.edmx</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Form\Config\App.config" />
+    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="QLTVModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>QLTVModel.Context.cs</LastGenOutput>
-      <DependentUpon>QLTVModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="QLTVModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>QLTVModel.edmx</DependentUpon>
-      <LastGenOutput>QLTVModel.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <ProjectReference Include="..\BUS\BUS.csproj">
+      <Project>{20aa60cb-5f1f-4ea6-9fd2-e3802449a743}</Project>
+      <Name>BUS</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
