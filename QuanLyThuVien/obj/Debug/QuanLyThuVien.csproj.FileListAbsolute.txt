@@ -1,0 +1,15 @@
+C:\Users\minht\source\repos\BaiTapLonLTCSDL\QuanLyThuVien\bin\Debug\QuanLyThuVien.exe.config
+C:\Users\minht\source\repos\BaiTapLonLTCSDL\QuanLyThuVien\bin\Debug\QuanLyThuVien.exe
+C:\Users\minht\source\repos\BaiTapLonLTCSDL\QuanLyThuVien\bin\Debug\QuanLyThuVien.pdb
+C:\Users\minht\source\repos\BaiTapLonLTCSDL\QuanLyThuVien\bin\Debug\EntityFramework.dll
+C:\Users\minht\source\repos\BaiTapLonLTCSDL\QuanLyThuVien\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\minht\source\repos\BaiTapLonLTCSDL\QuanLyThuVien\bin\Debug\EntityFramework.xml
+C:\Users\minht\source\repos\BaiTapLonLTCSDL\QuanLyThuVien\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\minht\source\repos\BaiTapLonLTCSDL\QuanLyThuVien\obj\Debug\QuanLyThuVien.csprojAssemblyReference.cache
+C:\Users\minht\source\repos\BaiTapLonLTCSDL\QuanLyThuVien\obj\Debug\QuanLyThuVien.FormNV.resources
+C:\Users\minht\source\repos\BaiTapLonLTCSDL\QuanLyThuVien\obj\Debug\QuanLyThuVien.Properties.Resources.resources
+C:\Users\minht\source\repos\BaiTapLonLTCSDL\QuanLyThuVien\obj\Debug\QuanLyThuVien.csproj.GenerateResource.cache
+C:\Users\minht\source\repos\BaiTapLonLTCSDL\QuanLyThuVien\obj\Debug\QuanLyThuVien.csproj.CoreCompileInputs.cache
+C:\Users\minht\source\repos\BaiTapLonLTCSDL\QuanLyThuVien\obj\Debug\QuanLyThuVien.csproj.CopyComplete
+C:\Users\minht\source\repos\BaiTapLonLTCSDL\QuanLyThuVien\obj\Debug\QuanLyThuVien.exe
+C:\Users\minht\source\repos\BaiTapLonLTCSDL\QuanLyThuVien\obj\Debug\QuanLyThuVien.pdb

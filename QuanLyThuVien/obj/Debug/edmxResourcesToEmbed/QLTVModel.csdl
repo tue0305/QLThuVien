@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbQLThuVienModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="BANGCAP">
+    <Key>
+      <PropertyRef Name="MaBangCap" />
+    </Key>
+    <Property Name="MaBangCap" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenBangCap" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="NHANVIENs" Relationship="Self.FK_NHANVIEN" FromRole="BANGCAP" ToRole="NHANVIEN" />
+  </EntityType>
+  <EntityType Name="CHITIETPHIEUMUON">
+    <Key>
+      <PropertyRef Name="MaSach" />
+      <PropertyRef Name="MaPhieuMuon" />
+    </Key>
+    <Property Name="MaSach" Type="Int32" Nullable="false" />
+    <Property Name="MaPhieuMuon" Type="Int32" Nullable="false" />
+    <Property Name="NgayTra" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="PHIEUMUONSACH" Relationship="Self.FK__CHITIETPH__MaPhi__20C1E124" FromRole="CHITIETPHIEUMUON" ToRole="PHIEUMUONSACH" />
+    <NavigationProperty Name="SACH" Relationship="Self.FK__CHITIETPH__MaSac__1FCDBCEB" FromRole="CHITIETPHIEUMUON" ToRole="SACH" />
+  </EntityType>
+  <EntityType Name="DOCGIA">
+    <Key>
+      <PropertyRef Name="MaDocGia" />
+    </Key>
+    <Property Name="MaDocGia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HoTenDocGia" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NgaySinh" Type="DateTime" Precision="0" />
+    <Property Name="DiaChi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+    <Property Name="NgayLapThe" Type="DateTime" Precision="0" />
+    <Property Name="NgayHetHan" Type="DateTime" Precision="0" />
+    <Property Name="TienNo" Type="Int32" />
+    <NavigationProperty Name="PHIEUMUONSACHes" Relationship="Self.FK__PHIEUMUON__MaDoc__1CF15040" FromRole="DOCGIA" ToRole="PHIEUMUONSACH" />
+    <NavigationProperty Name="PHIEUTHUTIENs" Relationship="Self.FK__PHIEUTHUT__MaDoc__1A14E395" FromRole="DOCGIA" ToRole="PHIEUTHUTIEN" />
+  </EntityType>
+  <EntityType Name="NHANVIEN">
+    <Key>
+      <PropertyRef Name="MaNhanVien" />
+    </Key>
+    <Property Name="MaNhanVien" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HoTenNhanVien" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NgaySinh" Type="DateTime" Precision="0" />
+    <Property Name="DiaChi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DienThoai" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="MaBangCap" Type="Int32" />
+    <NavigationProperty Name="BANGCAP" Relationship="Self.FK_NHANVIEN" FromRole="NHANVIEN" ToRole="BANGCAP" />
+    <NavigationProperty Name="PHIEUTHUTIENs" Relationship="Self.FK__PHIEUTHUT__MaNha__1920BF5C" FromRole="NHANVIEN" ToRole="PHIEUTHUTIEN" />
+  </EntityType>
+  <EntityType Name="PHIEUMUONSACH">
+    <Key>
+      <PropertyRef Name="MaPhieuMuon" />
+    </Key>
+    <Property Name="MaPhieuMuon" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NgayMuon" Type="DateTime" Precision="0" />
+    <Property Name="MaDocGia" Type="Int32" />
+    <NavigationProperty Name="CHITIETPHIEUMUONs" Relationship="Self.FK__CHITIETPH__MaPhi__20C1E124" FromRole="PHIEUMUONSACH" ToRole="CHITIETPHIEUMUON" />
+    <NavigationProperty Name="DOCGIA" Relationship="Self.FK__PHIEUMUON__MaDoc__1CF15040" FromRole="PHIEUMUONSACH" ToRole="DOCGIA" />
+  </EntityType>
+  <EntityType Name="PHIEUTHUTIEN">
+    <Key>
+      <PropertyRef Name="MaPhieuThuTien" />
+    </Key>
+    <Property Name="MaPhieuThuTien" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SoTienNo" Type="Int32" />
+    <Property Name="SoTienThu" Type="Int32" />
+    <Property Name="MaDocGia" Type="Int32" />
+    <Property Name="MaNhanVien" Type="Int32" />
+    <NavigationProperty Name="DOCGIA" Relationship="Self.FK__PHIEUTHUT__MaDoc__1A14E395" FromRole="PHIEUTHUTIEN" ToRole="DOCGIA" />
+    <NavigationProperty Name="NHANVIEN" Relationship="Self.FK__PHIEUTHUT__MaNha__1920BF5C" FromRole="PHIEUTHUTIEN" ToRole="NHANVIEN" />
+  </EntityType>
+  <EntityType Name="SACH">
+    <Key>
+      <PropertyRef Name="MaSach" />
+    </Key>
+    <Property Name="MaSach" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenSach" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TacGia" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NamXuatBan" Type="DateTime" Precision="0" />
+    <Property Name="NhaXuatBan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TriGia" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="NgayNhap" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="CHITIETPHIEUMUONs" Relationship="Self.FK__CHITIETPH__MaSac__1FCDBCEB" FromRole="SACH" ToRole="CHITIETPHIEUMUON" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_NHANVIEN">
+    <End Role="BANGCAP" Type="Self.BANGCAP" Multiplicity="0..1" />
+    <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BANGCAP">
+        <PropertyRef Name="MaBangCap" />
+      </Principal>
+      <Dependent Role="NHANVIEN">
+        <PropertyRef Name="MaBangCap" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CHITIETPH__MaPhi__20C1E124">
+    <End Role="PHIEUMUONSACH" Type="Self.PHIEUMUONSACH" Multiplicity="1" />
+    <End Role="CHITIETPHIEUMUON" Type="Self.CHITIETPHIEUMUON" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHIEUMUONSACH">
+        <PropertyRef Name="MaPhieuMuon" />
+      </Principal>
+      <Dependent Role="CHITIETPHIEUMUON">
+        <PropertyRef Name="MaPhieuMuon" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CHITIETPH__MaSac__1FCDBCEB">
+    <End Role="SACH" Type="Self.SACH" Multiplicity="1" />
+    <End Role="CHITIETPHIEUMUON" Type="Self.CHITIETPHIEUMUON" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SACH">
+        <PropertyRef Name="MaSach" />
+      </Principal>
+      <Dependent Role="CHITIETPHIEUMUON">
+        <PropertyRef Name="MaSach" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PHIEUMUON__MaDoc__1CF15040">
+    <End Role="DOCGIA" Type="Self.DOCGIA" Multiplicity="0..1" />
+    <End Role="PHIEUMUONSACH" Type="Self.PHIEUMUONSACH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DOCGIA">
+        <PropertyRef Name="MaDocGia" />
+      </Principal>
+      <Dependent Role="PHIEUMUONSACH">
+        <PropertyRef Name="MaDocGia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PHIEUTHUT__MaDoc__1A14E395">
+    <End Role="DOCGIA" Type="Self.DOCGIA" Multiplicity="0..1" />
+    <End Role="PHIEUTHUTIEN" Type="Self.PHIEUTHUTIEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DOCGIA">
+        <PropertyRef Name="MaDocGia" />
+      </Principal>
+      <Dependent Role="PHIEUTHUTIEN">
+        <PropertyRef Name="MaDocGia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PHIEUTHUT__MaNha__1920BF5C">
+    <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="0..1" />
+    <End Role="PHIEUTHUTIEN" Type="Self.PHIEUTHUTIEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHANVIEN">
+        <PropertyRef Name="MaNhanVien" />
+      </Principal>
+      <Dependent Role="PHIEUTHUTIEN">
+        <PropertyRef Name="MaNhanVien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="dbQLThuVienEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BANGCAPs" EntityType="Self.BANGCAP" />
+    <EntitySet Name="CHITIETPHIEUMUONs" EntityType="Self.CHITIETPHIEUMUON" />
+    <EntitySet Name="DOCGIAs" EntityType="Self.DOCGIA" />
+    <EntitySet Name="NHANVIENs" EntityType="Self.NHANVIEN" />
+    <EntitySet Name="PHIEUMUONSACHes" EntityType="Self.PHIEUMUONSACH" />
+    <EntitySet Name="PHIEUTHUTIENs" EntityType="Self.PHIEUTHUTIEN" />
+    <EntitySet Name="SACHes" EntityType="Self.SACH" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <AssociationSet Name="FK_NHANVIEN" Association="Self.FK_NHANVIEN">
+      <End Role="BANGCAP" EntitySet="BANGCAPs" />
+      <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CHITIETPH__MaPhi__20C1E124" Association="Self.FK__CHITIETPH__MaPhi__20C1E124">
+      <End Role="PHIEUMUONSACH" EntitySet="PHIEUMUONSACHes" />
+      <End Role="CHITIETPHIEUMUON" EntitySet="CHITIETPHIEUMUONs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CHITIETPH__MaSac__1FCDBCEB" Association="Self.FK__CHITIETPH__MaSac__1FCDBCEB">
+      <End Role="SACH" EntitySet="SACHes" />
+      <End Role="CHITIETPHIEUMUON" EntitySet="CHITIETPHIEUMUONs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PHIEUMUON__MaDoc__1CF15040" Association="Self.FK__PHIEUMUON__MaDoc__1CF15040">
+      <End Role="DOCGIA" EntitySet="DOCGIAs" />
+      <End Role="PHIEUMUONSACH" EntitySet="PHIEUMUONSACHes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PHIEUTHUT__MaDoc__1A14E395" Association="Self.FK__PHIEUTHUT__MaDoc__1A14E395">
+      <End Role="DOCGIA" EntitySet="DOCGIAs" />
+      <End Role="PHIEUTHUTIEN" EntitySet="PHIEUTHUTIENs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PHIEUTHUT__MaNha__1920BF5C" Association="Self.FK__PHIEUTHUT__MaNha__1920BF5C">
+      <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+      <End Role="PHIEUTHUTIEN" EntitySet="PHIEUTHUTIENs" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
